@@ -14,9 +14,39 @@
     --ok: #47d18c;
     --ring: 0 0 0 2px color-mix(in srgb, var(--brand) 25%, transparent);
     --radius: 14px;
-    --shadow: 0 10px 30px rgba(0,0,0,.35);
-    /*    --container: 1168px;*/
-    --container: 1350px;
+    --shadow: 0 10px 20px rgba(0,0,0,.35);
+        --container: 1168px;
+  /*  --container: 1350px;*/
+}
+
+/* Logoo */
+/*.login-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;*/ /* use "cover" if you want the image to fully fill even if cropped */
+    /*border-radius: 12px;*/ /* optional, to match card rounded corners */
+    /* margin-bottom: 1rem;*/
+/*}*/
+/* Logo */
+.login-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    /*align-content:end;*/
+    
+}
+
+.client-card {
+    background-image: url('company-logo.png');
+    background-size: contain; /* or cover */
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px; /* set a height */
+    border-radius: 100px;
+    
 }
 
 @media (prefers-color-scheme: light) {
@@ -343,33 +373,47 @@ footer {
 }
 
 /* Floating animation for the mock dashboard */
-@keyframes float {
+@keyframes spin {
     0% {
-        transform: translateY(0px);
+        transform: rotate(0deg);
     }
-
-    50% {
-        transform: translateY(-30px);
-    }
+/*     50% {
+        transform: rotate(0deg);
+    }*/
 
     100% {
-        transform: translateY(0px);
+        transform: rotate(360deg);
     }
 }
 
 .mock {
-    animation: float 6s ease-in-out infinite;
+    animation: spin 60s linear infinite; /* adjust speed here */
 }
+ 
 
 /* Hover lift effect on feature cards */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+    .card.animate {
+        animation: fadeUp 0.7s ease forwards;
     }
+
 
 /* CTA button pulse */
 @keyframes pulse {
@@ -391,4 +435,63 @@ footer {
 }
 
 
+/* BUTTON HOVER SCALE */
+.btn {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+
+/* SMOOTH FOOTER FADE-IN */
+footer {
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards;
+}
+
+/* clients animations*/
+
+.clients {
+    text-align: center;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/*.card-s {
+    min-width: 250px;
+    height: 180px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);*/
+    /* font-weight: bold;*/
+/*}*/
+
+.slide-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll 40s linear infinite;
+    width: calc(250px * 8); /* card width × number of items */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-80%);
+    }
+}
 
