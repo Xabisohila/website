@@ -15,7 +15,7 @@
     --ring: 0 0 0 2px color-mix(in srgb, var(--brand) 25%, transparent);
     --radius: 14px;
     --shadow: 0 10px 20px rgba(0,0,0,.35);
-        --container: 1168px;
+    --container: 1168px;
   /*  --container: 1350px;*/
 }
 
@@ -104,6 +104,7 @@ a {
     justify-content: space-between;
     gap: 16px;
     padding-block: 14px;
+
 }
 
 .brand {
@@ -469,8 +470,8 @@ footer {
 .slide-track {
     display: flex;
     gap: 20px;
-    animation: scroll 40s linear infinite;
-    width: calc(250px * 8); /* card width × number of items */
+    animation: scroll 60s linear infinite;
+    width: calc(250px * 9); /* card width × number of items */
 }
 
 @keyframes scroll {
